@@ -35,8 +35,10 @@ class SendHandler(tornado.web.RequestHandler):
         msgtype = msgtype[0]
         if len(ext) > 0:
             ext = ext[0]
+            ext = eval(ext)
         else:
-            ext = ""
+              ext = dict()
+
 
         title = cache.msgtypes.get(msgtype)
         if title is None:
